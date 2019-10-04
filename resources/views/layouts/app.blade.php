@@ -49,6 +49,18 @@
                                 </li>
                             @endif
                         @else
+                         <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kategori
+                            </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="kategori_artikel">Kategori Artikel</a>
+                                  <a class="dropdown-item" href="kategori_galeri">Kategori Galeri</a>
+                                  <a class="dropdown-item" href="kategori_berita">Kategori Berita</a>
+                                  <a class="dropdown-item" href="kategori_pengumuman">Kategori Pengumuman </a>
+                                  <div class="dropdown-divider"></div>
+                                </div>
+                              </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
