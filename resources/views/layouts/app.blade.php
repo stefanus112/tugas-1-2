@@ -32,7 +32,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Master Data
+                            </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="kategori_artikel">Kategori Artikel</a>
+                                  <a class="dropdown-item" href="kategori_berita">Kategori Berita</a>
+                                  <a class="dropdown-item" href="kategori_galeri">Kategori Galeri</a>
+                                  <a class="dropdown-item" href="kategori_pengumuman">Kategori Pengumuman </a>
+                                  <a class="dropdown-item" href="Artikel">Artikel </a>
+                                  <a class="dropdown-item" href="Berita">Berita </a>
+                                  <a class="dropdown-item" href="Galeri">Galeri </a>
+                                  <a class="dropdown-item" href="Pengumuman">Pengumuman </a>
+                                  <div class="dropdown-divider"></div>
+                                </div>
+                              </li>
+
+                    </ul>
 
                     </ul>
 
@@ -49,18 +66,7 @@
                                 </li>
                             @endif
                         @else
-                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Kategori
-                            </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="kategori_artikel">Kategori Artikel</a>
-                                  <a class="dropdown-item" href="kategori_galeri">Kategori Galeri</a>
-                                  <a class="dropdown-item" href="kategori_berita">Kategori Berita</a>
-                                  <a class="dropdown-item" href="kategori_pengumuman">Kategori Pengumuman </a>
-                                  <div class="dropdown-divider"></div>
-                                </div>
-                              </li>
+                         
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -83,10 +89,18 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+    @yield('scripts')
 </body>
 </html>
+
+       

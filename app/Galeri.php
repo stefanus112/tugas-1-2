@@ -8,5 +8,8 @@ class Galeri extends Model
 {
     protected $table ='Galeri';
 
-    	protected $fillable = ['nama', 'users_id']; 
+    	protected $fillable = ['nama', 'users_id','keterangan','kategori_galeri_id']; 
+protected $casts=[
+    	];
+
 }

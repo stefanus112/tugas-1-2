@@ -8,5 +8,10 @@ class Artikel extends Model
 {
     protected $table ='Artikel';
 
-    	protected $fillable = ['nama', 'users_id']; 
+    	protected $fillable = [
+    		'judul', 'users_id','isi','kategori_artikel_id'
+    ]; 
+
+    	protected $casts=[
+    	];
 }

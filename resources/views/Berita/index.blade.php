@@ -8,18 +8,28 @@
                 <div class="card-body">
                 <table class="table table-bordered">
                     <thead class="bg-danger">
-                        <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">User_id</th>
+                         <a href="{!! route('Berita.create') !!}" class="btn btn-primary">Tambah Data</a>
+                         <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Judul</th>
+                        <th scope="col">Isi</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Users Id</th>
+                        <th scope="col">Create</th>
+                        <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach( $Berita as $item)
                         <tr>
                         <td>{!! $item->id !!}</td>
-                        <td>{!! $item->nama !!}</td>
+                        <td>{!! $item->judul !!}</td>
+                        <td>{!! $item->isi !!}</td>
+                        <td>{!! $item->kategori_berita_id !!}</td>
                         <td>{!! $item->users_id !!}</td>
+                        <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
+                        <td>
+                         <a href="{!! route('Berita.show',[$item->id]) !!}"class="btn btn-success">Lihat</a>
                         </tr>
                         @endforeach
                     </tbody>

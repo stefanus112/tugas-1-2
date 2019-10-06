@@ -8,18 +8,28 @@
                 <div class="card-body">
                 <table class="table table-bordered">
                     <thead class="bg-danger">
+                         <a href="{!! route('Galeri.create') !!}" class="btn btn-primary">Tambah Data</a>
                         <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">User_id</th>
+                         <th scope="col">ID</th>
+                        <th scope="col">nama</th>
+                        <th scope="col">keterangan</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Users Id</th>
+                        <th scope="col">Create</th>
+                        <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach( $Galeri as $item)
-                        <tr>
+                       <tr>
                         <td>{!! $item->id !!}</td>
                         <td>{!! $item->nama !!}</td>
+                        <td>{!! $item->keterangan !!}</td>
+                        <td>{!! $item->kategori_galeri_id !!}</td>
                         <td>{!! $item->users_id !!}</td>
+                        <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
+                        <td>
+                         <a href="{!! route('Galeri.show',[$item->id]) !!}"class="btn btn-success">Lihat</a>
                         </tr>
                         @endforeach
                     </tbody>
