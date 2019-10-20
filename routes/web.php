@@ -17,56 +17,31 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('kategori_artikel/trash','KategoriArtikelController@trash')->name('kategori_artikel.trash');
+Route::get('kategori_berita/trash','KategoriBeritaController@trash')->name('kategori_berita.trash');
+Route::get('kategori_galeritrash','KategoriGaleriController@trash')->name('kategori_galeri.trash');
+Route::get('kategori_pengumuman/trash','KategoriPengumumanController@trash')->name('kategori_pengumuman.trash');
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-//artikel
-Route::get('/kategori_artikel', 'KategoriArtikelController@index')->name('kategori_artikel.index');
-Route::get('/kategori_artikel/create','KategoriArtikelController@create')->name('kategori_artikel.create');
-Route::post('/kategori_artikel','KategoriArtikelController@store')->name('kategori_artikel.store');
-Route::get('/kategori_artikel/{id}','KategoriArtikelController@show')->name('kategori_artikel.show');
+Route::resource('kategori_artikel','KategoriArtikelController');
 
-//berita
-Route::get('/kategori_berita', 'KategoriBeritaController@index')->name('kategori_berita.index');
-Route::get('/kategori_berita/create','KategoriBeritaController@create')->name('kategori_berita.create');
-Route::post('/kategori_berita','KategoriBeritaController@store')->name('kategori_berita.store');
-Route::get('/kategori_berita/{id}','KategoriBeritaController@show')->name('kategori_berita.show');
+Route::resource('kategori_berita','KategoriBeritaController');
 
-//galeri
-Route::get('/kategori_galeri', 'KategoriGaleriController@index')->name('kategori_galeri.index');
-Route::get('/kategori_galeri/create','KategoriGaleriController@create')->name('kategori_galeri.create');
-Route::post('/kategori_galeri','KategoriGaleriController@store')->name('kategori_galeri.store');
-Route::get('/kategori_galeri/{id}','KategoriGaleriController@show')->name('kategori_galeri.show');
+Route::resource('kategori_galeri','KategoriGaleriController');
 
-//pengumuman
-Route::get('/kategori_pengumuman', 'KategoriPengumumanController@index')->name('kategori_pengumuman.index');
-Route::get('/kategori_pengumuman/create','KategoriPengumumanController@create')->name('kategori_pengumuman.create');
-Route::post('/kategori_pengumuman','KategoriPengumumanController@store')->name('kategori_pengumuman.store');
-Route::get('/kategori_pengumuman/{id}','KategoriPengumumanController@show')->name('kategori_pengumuman.show');
+Route::resource('kategori_pengumuman','KategoriPengumumanController');
 
 
-//artikel
 
-Route::get('/Artikel', 'ArtikelController@index')->name('Artikel.index');
-Route::get('/Artikel/create','ArtikelController@create')->name('Artikel.create');
-Route::post('/Artikel','ArtikelController@store')->name('Artikel.store');
-Route::get('/Artikel/{id}','ArtikelController@show')->name('Artikel.show');
+Route::get('Artikel/trash','ArtikelController@trash')->name('Artikel.trash');
+Route::get('Berita/trash','BeritaController@trash')->name('Berita.trash');
+Route::get('Galeri/trash','GaleriController@trash')->name('Galeri.trash');
+Route::get('Pengumuman/trash','PengumumanController@trash')->name('Pengumuman.trash');
 
-//berita
-Route::get('/Berita', 'BeritaController@index')->name('Berita.index');
-Route::get('/Berita/create','BeritaController@create')->name('Berita.create');
-Route::post('/Berita','BeritaController@store')->name('Berita.store');
-Route::get('/Berita/{id}','BeritaController@show')->name('Berita.show');
-
-//galeri
-Route::get('/Galeri', 'GaleriController@index')->name('Galeri.index');
-Route::get('/Galeri/create','GaleriController@create')->name('Galeri.create');
-Route::post('/Galeri','GaleriController@store')->name('Galeri.store');
-Route::get('/Galeri/{id}','GaleriController@show')->name('Galeri.show');
-
-//pengumuman
-Route::get('/Pengumuman', 'PengumumanController@index')->name('Pengumuman.index');
-Route::get('/Pengumuman/create','PengumumanController@create')->name('Pengumuman.create');
-Route::post('/Pengumuman','PengumumanController@store')->name('Pengumuman.store');
-Route::get('/Pengumuman/{id}','PengumumanController@show')->name('Pengumuman.show');
-
-
+Route::resource('Artikel','ArtikelController');
+Route::resource('Berita','BeritaController');
+Route::resource('Galeri','GaleriController');
+Route::resource('Pengumuman','PengumumanController');

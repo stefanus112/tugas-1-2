@@ -4,7 +4,7 @@
         <label form ="judul" class="col-md-2 col-form-label text-md-right">{{ __('Judul') }}</label>
 
         <div class="col-md-10">
-            <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autofocus>
+            {!! Form::text('judul', null,['class'=>'form-control']); !!}
 
             @error('judul')
             <span class="invalid-feedback" role="alert">
@@ -15,10 +15,10 @@
 </div>
 
 <div class="form-group row">
-    <label form ="kategori_berita_id" class="col-md-2 col-form-label text-md-right">{{ __('Kategori Berita') }}</label>
+    <label form ="kategori_artikel_id" class="col-md-2 col-form-label text-md-right">{{ __('Kategori Berita') }}</label>
 
         <div class="col-md-10">
-            {!! Form::select('kategori_berita_id', $Berita,null, ["class"=>"form-control","required"] ) !!}
+            {!! Form::select('kategori_berita_id', $KategoriBerita, null, ["class"=>"form-control","required"] ) !!}
 
             @error('kategori_berita_id')
             <span class="invalid-feedback" role="alert">

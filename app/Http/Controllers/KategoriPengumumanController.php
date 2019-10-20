@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\KategoriPengumuman;
+
 class KategoriPengumumanController extends Controller
 {
     public function index()
@@ -28,5 +29,43 @@ class KategoriPengumumanController extends Controller
         KategoriPengumuman::create($input);
 
         return redirect(route('kategori_pengumuman.index'));
+    }
+     public function edit($id)
+       {
+        $kategori_pengumuman=KategoriPengumuman::find($id);
+
+        if (empty($kategori_pengumuman)){
+            return redirect(route ('kategori_pengumuman.index'));
+        }
+
+        return view('kategori_pengumuman.edit',compact('kategori_pengumuman'));
+    }
+    public function update($id,Request $request){
+      $kategori_pengumuman=KategoriPengumuman::find($id);
+      $input=$request->all();
+  
+      if(empty($kategori_pengumuman)) {
+        return redirect(route('kategori_pengumuman.index'));
+      }
+
+      $kategori_pengumuman->update($input);
+      return redirect(route('kategori_pengumuman.index'));
+    }
+    public function destroy($id){
+        $kategori_pengumuman=KategoriPengumuman::find($id);
+
+        if (empty($kategori_pengumuman)){
+            return redirect(route ('kategori_pengumuman.index'));
+        }
+
+        $kategori_pengumuman->delete();
+        return redirect(route('kategori_pengumuman.index'));
+    }
+    public function trash(){
+        $kategori_pengumuman=KategoriPengumuman::onlyTrashed()
+                            ->WhereNotNull('deleted_at')
+                            ->get();
+
+        return view ('kategori_pengumuman.index',compact('kategori_pengumuman'));
     }
 }

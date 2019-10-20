@@ -8,6 +8,9 @@
                 <div class="card-header">Kategori Galeri</div>
                 <div class="card-body">
                     <a href="{!! route('kategori_galeri.create') !!}" class="btn btn-primary">Tambah Data</a>
+                    <a href="{!! route('kategori_galeri.trash') !!}" class="btn btn-danger">
+                         See delete data</a>
+                         
                 <table class="table table-bordered">
                     <thead class="bg-warning">
                         <tr>
@@ -28,6 +31,14 @@
                         <td>{!! $item->created_at->format('d/m/Y H:i:s')!!}</td>
                         <td>
                          <a href="{!! route('kategori_galeri.show',[$item->id]) !!}">Lihat</a>
+                          <a href="{!! route('kategori_galeri.edit',[$item->id]) !!}" class="btn btn-sm btn-warning">
+                         Ubah</a>
+
+                         {!! Form::open(['route' => ['kategori_galeri.destroy', $item->id],'method'=>'delete']); !!}
+
+                         {!! Form::submit('Hapus', ['class'=>'btn btn-sm btn-danger','onclick'=>"return confirm('Apakah anda yakin menghapus data ini ?')"]); !!}
+
+                         {!! Form::close() !!}
                         </td>
                         </tr>
                        @endforeach

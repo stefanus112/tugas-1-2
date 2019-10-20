@@ -3,22 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Tambah Berita</div>
+                <div class="card-header">Tambah Pengumuman</div>
 
                 <div class="card-body">
-                    {!! Form::open(['route' => 'Berita.store', 'method' => 'post']) !!}
+                    {!! Form::model($Pengumuman, ['route' => ['Pengumuman.update', $Pengumuman->id],'method'=>'patch']) !!}
                         
-                        @include('Berita.form')
+                        @include('Pengumuman.form')
                     
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
      </div>
-</div>
 @endsection
+
+
 @section('scripts')
     <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 
